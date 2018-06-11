@@ -30,6 +30,7 @@
     "@welbot/sdk": "^0.5.10",
     "babel-runtime": "^6.26.0",
     "source-map-support": "^0.4.18",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "xml2js": "^0.4.19"
   }
 }

@@ -152,24 +152,25 @@ function customer(){
 				"affiliate": (0, affiliateSchema)()						
 
 			}).required() ); 
-	};		
+	};	
 
-	//TODO: Go one-by-one property and verify all match!
-
-	const customerValidationSchema = {
-		
-		customer:{
-					id: (0, uuidSchema)(),
+	const customerSchema =  (0, objectSchema)().keys({
+					id: (0, uuidSchema)(), 
 					"details": (0,detailsSchema)().required(),
 					"user-id": (0, uuidSchema)().required(),
-					"organisation-id": (0, stringSchema)(),
+					"organisation-id": (0, stringSchema)().required(),
 					"account": (0,accountSchema)().required()
-				}
+				});
 
+	const customerValidationSchema = {
+		  body: {
+		    
+		    customer: customerSchema.required()
+		  }
 	};
 
 	//TODO: What are the required keys?
-	const customerRequiredKeys = [];
+	const customerRequiredKeys = ["customer"];
 	const customerOptionalKeys = [];
 
 	return(
