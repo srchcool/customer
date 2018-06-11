@@ -71,7 +71,7 @@ test('get created customer', async (done) => {
   await get.main(event, context, callback);
 });
 
-/*test('list succeeds', async (done) => {
+test('list succeeds', async (done) => {
   console.log('list.');
   const event = apiGatewayEventForTest();
   event.httpMethod = 'GET';
@@ -83,22 +83,27 @@ test('get created customer', async (done) => {
   const callback = (error, response) => {
     expect(response.statusCode).toEqual(200);
     expect(typeof response.body).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].userId).toBe('uuid');
-    expect(typeof JSON.parse(response.body)[0].day).toBe('object');
-    expect(typeof JSON.parse(response.body)[0].day.date).toBe('date');
-    expect(typeof JSON.parse(response.body)[0].day.events).toBe('array');
-    expect(typeof JSON.parse(response.body)[0].day.events[0].time).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].day.events[0].category).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].day.events[0].contentFormat).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].day.events[0].displayType).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].day.events[0].cardId).toBe('uuid');
-    expect(typeof JSON.parse(response.body)[0].day.events[0].action).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].day.events[0].additional).toBe('object');
+
+ 
+    expect(typeof JSON.parse(response.body)[0].details).toBe('object');
+    expect(typeof JSON.parse(response.body)[0].details["first-name"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].details["last-name"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].details["email"]).toBe('string');
+
+    expect(typeof JSON.parse(response.body)[0]["user-id"]).toBe('uuid');
+
+    expect(typeof JSON.parse(response.body)[0].account).toBe('object');
+    expect(typeof JSON.parse(response.body)[0].account["account-number"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].account["account-type"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].account["account-start"]).toBe('date');
+    expect(typeof JSON.parse(response.body)[0].account["price-per-seat"]).toBe('number');
+    expect(typeof JSON.parse(response.body)[0].account["licences"]).toBe('number');
+    expect(typeof JSON.parse(response.body)[0].account["subscription-period"]).toBe('string');
     done();
   };
 
   await list.main(event, context, callback);
-});*/
+});
 
 test('update customer content', async (done) => {
   console.log('update.');

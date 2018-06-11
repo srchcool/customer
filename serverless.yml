@@ -31,7 +31,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:eu-west-1:*:*"
+      Resource: "arn:aws:dynamodb:eu-west-1:*:table/customer"
 
 
 functions:
@@ -49,23 +49,7 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
-
-  get:
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /customer/{id}
-    # - method: GET request
-    handler: get.main
-    events:
-      - http:
-          path: customer/{id}
-          method: get
-          cors: true
-          authorizer: aws_iam 
-
   update:
-    # Defines an HTTP API endpoint that calls the main function in update.js
-    # - path: url path is /customer/{id}
-    # - method: PUT request
     handler: update.main
     events:
       - http:
@@ -73,5 +57,27 @@ functions:
           method: put
           cors: true
           authorizer: aws_iam
-      
-          
+  delete:
+    handler: delete.main
+    events:
+      - http:
+          path: customer/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  get:
+    handler: get.main
+    events:
+      - http:
+          path: customer/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: customer
+          method: get
+          cors: true
+          authorizer: aws_iam

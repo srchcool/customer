@@ -154,23 +154,17 @@ function customer(){
 			}).required() ); 
 	};	
 
-	const customerSchema =  (0, objectSchema)().keys({
-					id: (0, uuidSchema)(), 
-					"details": (0,detailsSchema)().required(),
-					"user-id": (0, uuidSchema)().required(),
-					"organisation-id": (0, stringSchema)().required(),
-					"account": (0,accountSchema)().required()
-				});
-
 	const customerValidationSchema = {
 		  body: {
-		    
-		    customer: customerSchema.required()
+					id: (0, uuidSchema)(), 
+					details: (0,detailsSchema)().required(),
+					"user-id": (0, uuidSchema)().required(),
+					"organisation-id": (0, stringSchema)(),
+					account: (0,accountSchema)().required()
 		  }
 	};
 
-	//TODO: What are the required keys?
-	const customerRequiredKeys = ["customer"];
+	const customerRequiredKeys = ["details","user-id","account"];
 	const customerOptionalKeys = [];
 
 	return(

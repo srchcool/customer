@@ -22,39 +22,56 @@ export const contextForTest = () => ({
 
 export function basiccustomerBody() {
 
-  const event = {
-
-    time: '12:13',
-
-    category: ‘physical’,
-
-    contentFormat: ‘static’,
-
-    displayType:’greeting’,
-
-    cardId: '31a9923b-9ee1-4e9e-a3d4-8f800fabce54',
-
-    action : dismiss’ ,
-
-    additional: {
-
-      view: null
-
-    }
-
-  };
-
   const customer = {
 
-      userId: 'a43a3de4-6a46-11e8-adc0-fa7ae01bbebc',
+          /*id:"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",*/
+          details:{
+                salutation:"Mr",
+                "first-name":"Sam",
+                "last-name":"Deere",
+                email:"sam@welbot.io"
+                 },
+          "user-id":"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
+          "organisation-id":"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
+          account:{
+                "account-number":"STU0001",
+                "account-type":"D2C/B2B/Affiliate",
+                "account-start":"2018-03-21",
+                "price-per-seat":"5.50",
+                "monthly-payment":"",
+                "yearly-payment":"2000.00",
+                "discount":{
+                      "discount-type":"yearly",
+                      "discount-percentage":"10"
+                      },              
+                 "affiliate-code":"",
+                 "licences":"20",
+                 "subscription-period":"24 months",
+                 "customer-type":"Paid Beta",
+                 "cancellation":"True",
+                 "refund":"",
+                 "refund-amount":"",
+                 payment:{
+                        "id":"",
+                        "gateway-id":"",
+                        "object":"card/bank transfer/cheque"
+                        },                      
+                 affiliate:{
+                        "affiliate-type":"",
+                        "affiliate-id":"",
+                        "discount":{
+                              "affiliate-code":"",
+                              "discount-id":"",
+                              "discount-percentage":"10"
+                                 }
+                        }
 
-      day: {
+                  
+                
+                } //END "account"
 
-        date: '7/6/2018',
 
-        events: [event] }
-
-  }
+        };
 
 
   return customer;
