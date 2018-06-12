@@ -77,8 +77,8 @@ test('list succeeds', async (done) => {
   event.httpMethod = 'GET';
 
   const context = contextForTest();
-  context.logGroupName = '/aws/lambda/nudge-group-service-prod-list';
-  context.functionName = 'nudge-group-service-prod-list';
+  context.logGroupName = '/aws/lambda/customer-group-service-prod-list';
+  context.functionName = 'customer-group-service-prod-list';
 
   const callback = (error, response) => {
     expect(response.statusCode).toEqual(200);
@@ -86,19 +86,19 @@ test('list succeeds', async (done) => {
 
  
     expect(typeof JSON.parse(response.body)[0].details).toBe('object');
-    expect(typeof JSON.parse(response.body)[0].details["first-name"]).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].details["last-name"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].details["firstName"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].details["lastName"]).toBe('string');
     expect(typeof JSON.parse(response.body)[0].details["email"]).toBe('string');
 
     expect(typeof JSON.parse(response.body)[0]["user-id"]).toBe('uuid');
 
     expect(typeof JSON.parse(response.body)[0].account).toBe('object');
-    expect(typeof JSON.parse(response.body)[0].account["account-number"]).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].account["account-type"]).toBe('string');
-    expect(typeof JSON.parse(response.body)[0].account["account-start"]).toBe('date');
-    expect(typeof JSON.parse(response.body)[0].account["price-per-seat"]).toBe('number');
+    expect(typeof JSON.parse(response.body)[0].account["accountNumber"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].account["accountType"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].account["accountStart"]).toBe('date');
+    expect(typeof JSON.parse(response.body)[0].account["pricePerSeat"]).toBe('number');
     expect(typeof JSON.parse(response.body)[0].account["licences"]).toBe('number');
-    expect(typeof JSON.parse(response.body)[0].account["subscription-period"]).toBe('string');
+    expect(typeof JSON.parse(response.body)[0].account["subscriptionPeriod"]).toBe('string');
     done();
   };
 

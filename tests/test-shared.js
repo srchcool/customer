@@ -25,51 +25,50 @@ export function basiccustomerBody() {
   const customer = {
 
           /*id:"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",*/
-          details:{
+            details:{
                 salutation:"Mr",
-                "first-name":"Sam",
-                "last-name":"Deere",
+                firstName:"Sam",
+                lastName:"Deere",
                 email:"sam@welbot.io"
                  },
-          "user-id":"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
-          "organisation-id":"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
+          userId:"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
+          organisationId:"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
           account:{
-                "account-number":"STU0001",
-                "account-type":"D2C/B2B/Affiliate",
-                "account-start":"2018-03-21",
-                "price-per-seat":"5.50",
-                "monthly-payment":"",
-                "yearly-payment":"2000.00",
-                "discount":{
-                      "discount-type":"yearly",
-                      "discount-percentage":"10"
+                accountNumber:"STU0001",
+                accountType:"D2C/B2B/Affiliate",
+                accountStart:"2018-03-21",
+                pricePerSeat:"5.50",
+                monthlyPayment:"19.99",
+                yearlyPayment:"2000.00",
+                discount:{
+                      discountType:"yearly",
+                      discountPercentage:"10"
                       },              
-                 "affiliate-code":"",
-                 "licences":"20",
-                 "subscription-period":"24 months",
-                 "customer-type":"Paid Beta",
-                 "cancellation":"True",
-                 "refund":"",
-                 "refund-amount":"",
+                 affiliateCode:"",
+                 licences:"20",
+                 subscriptionPeriod:"24 months",
+                 customerType:"Paid Beta",
+                 cancellation:"True",
+                 refund:"0",
+                 refundAmount:"0",
                  payment:{
-                        "id":"",
-                        "gateway-id":"",
-                        "object":"card/bank transfer/cheque"
+                        id:"SDFSD",
+                        gatewayId:"SDFSD",
+                        object:"card/bank transfer/cheque"
                         },                      
                  affiliate:{
-                        "affiliate-type":"",
-                        "affiliate-id":"",
-                        "discount":{
-                              "affiliate-code":"",
-                              "discount-id":"",
-                              "discount-percentage":"10"
+                        affiliateType:"SDFSD",
+                        affiliateId:"234ERW",
+                        discount:{
+                              affiliateCode:"SERFSF",
+                              discountId:"SDFSD",
+                              discountPercentage:"10"
                                  }
                         }
 
                   
                 
                 } //END "account"
-
 
         };
 
