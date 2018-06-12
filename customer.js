@@ -92,7 +92,7 @@ function customer(){
 
 	const detailsSchema = ()=> {
 	  return( (0, objectSchema)().keys({
-	    	salutation: (0, stringSchema)(),
+	    	salutation: (0, stringSchema)().optional(),
 	    	firstName: (0, stringSchema)().required(),
 	    	lastName: (0, stringSchema)().required(),
 			email: (0, emailSchema)().required()
@@ -103,7 +103,7 @@ function customer(){
 		return( (0, objectSchema)().keys({
 				discountType: (0, stringSchema)(),
 				discountPercentage: (0, numberSchema)()
-				}) ); 
+				}).optional() ); 
 		};
 
 	//TODO: is id here a uuid??	gateway-id??							  			
@@ -120,7 +120,7 @@ function customer(){
 				affiliateCode: (0, stringSchema)(),
 				discountId: (0, stringSchema)(),
 				discountPercentage: (0, numberSchema)()
-				}) ); 
+				}).optional() ); 
 		};									 				
 
 	const affiliateSchema = ()=> {
@@ -128,7 +128,7 @@ function customer(){
 				affiliateType: (0, stringSchema)(),
 				affiliateId: (0, stringSchema)(),
 				discount: (0, affiliateDiscountSchema)()
-				}) ); 
+				}).optional() ); 
 		};	
 
 	const accountSchema = ()=> {
@@ -140,16 +140,16 @@ function customer(){
 				pricePerSeat: (0, numberSchema)().required(),
 				monthlyPayment: (0, numberSchema)().required(),
 				yearlyPayment: (0, numberSchema)().required(),
-				discount: (0, discountSchema)(),
-				affiliateCode: (0, stringSchema)(),
+				discount: (0, discountSchema)().optional(),
+				affiliateCode: (0, stringSchema)().optional(),
 				licences: (0, numberSchema)().required(),
 				subscriptionPeriod: (0, stringSchema)().required(),
 				customerType: (0, stringSchema)().required(),
 				cancellation: (0, stringSchema)().required(),
-				refund: (0, stringSchema)(),
-				refundAmount:(0, numberSchema)(),	
-				payment: (0, paymentSchema)(),	
-				affiliate: (0, affiliateSchema)()						
+				refund: (0, stringSchema)().optional(),
+				refundAmount:(0, numberSchema)().optional(),	
+				payment: (0, paymentSchema)().required(),	
+				affiliate: (0, affiliateSchema)().optional()						
 
 			}).required() ); 
 	};	
@@ -159,13 +159,13 @@ function customer(){
 					id: (0, uuidSchema)(), 
 					details: (0,detailsSchema)().required(),
 					userId: (0, uuidSchema)().required(),
-					organisationId: (0, uuidSchema)(),
+					organisationId: (0, uuidSchema)().optional(),
 					account: (0,accountSchema)().required()
 		  }
 	};
 
 	const customerRequiredKeys = ["details","userId","account"];
-	const customerOptionalKeys = ["affiliateCode"];
+	const customerOptionalKeys = ["organisationId"];
 
 	return(
 	{
