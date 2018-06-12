@@ -7,55 +7,55 @@ function customer(){
 /********DATA SPECS**********************
 
 
-	"customer":{
-					"id":"GUID",
-					"details":{
-								"salutation":"Mr",
-								"first-name":"Sam",
-								"last-name":"Deere",
-								"email":"sam@welbot.io"
-							   },
-					"user-id":"GUID",
-					"organisation-id":"",
-					"account":{
-								"account-number":"STU0001",
-								"account-type":"D2C/B2B/Affiliate",
-								"account-start":"2018-03-21",
-								"price-per-seat":"5.50",
-								"monthly-payment":"",
-								"yearly-payment":"2000.00",
-								"discount":{
-											"discount-type":"yearly",
-											"discount-percentage":"10"
-											},							
-								 "affiliate-code":"",
-								 "licences":"20",
-								 "subscription-period":"24 months",
-								 "customer-type":"Paid Beta",
-								 "cancellation":"True",
-								 "refund":"",
-								 "refund-amount":"",
-								 "payment":{
-								  			"id":"",
-								  			"gateway-id":"",
-								  			"object":"card/bank transfer/cheque"
-								  			},							  			
-								 "affiliate":{
-								 				"affiliate-type":"",
-								 				"affiliate-id":"",
-								 				"discount":{
-								 							"affiliate-code":"",
-								 							"discount-id":"",
-								 							"discount-percentage":"10"
-								 						     }
-								 				}
+{
+		  id:"uuid",
+          details:{
+                salutation:"Mr",
+                firstName:"Sam",
+                lastName:"Deere",
+                email:"sam@welbot.io"
+                 },
+          userId:"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
+          organisationId:"31a9923b-9ee1-4e9e-a3d4-8f800fabce54",
+          account:{
+                accountNumber:"STU0001",
+                accountType:"D2C/B2B/Affiliate",
+                accountStart:"2018-03-21",
+                pricePerSeat:"5.50",
+                monthlyPayment:"19.99",
+                yearlyPayment:"2000.00",
+                discount:{
+                      discountType:"yearly",
+                      discountPercentage:"10"
+                      },              
+                 affiliateCode:"ASDARRE",
+                 licences:"20",
+                 subscriptionPeriod:"24 months",
+                 customerType:"Paid Beta",
+                 cancellation:"True",
+                 refund:"0",
+                 refundAmount:"0",
+                 payment:{
+                        id:"SDFSD",
+                        gatewayId:"SDFSD",
+                        object:"card/bank transfer/cheque"
+                        },                      
+                 affiliate:{
+                        affiliateType:"SDFSD",
+                        affiliateId:"234ERW",
+                        discount:{
+                              affiliateCode:"SERFSF",
+                              discountId:"SDFSD",
+                              discountPercentage:"10"
+                                 }
+                        }
 
-					 				
-								
-								} //END "account"
+                  
+                
+                } //END "account"
 
 
-				}
+}
 
 
 */
@@ -93,63 +93,63 @@ function customer(){
 	const detailsSchema = ()=> {
 	  return( (0, objectSchema)().keys({
 	    	salutation: (0, stringSchema)(),
-	    	'first-name': (0, stringSchema)().required(),
-	    	'last-name': (0, stringSchema)().required(),
+	    	firstName: (0, stringSchema)().required(),
+	    	lastName: (0, stringSchema)().required(),
 			email: (0, emailSchema)().required()
 	    }).required() ); 
 	};
 
 	const discountSchema = ()=> {
 		return( (0, objectSchema)().keys({
-				"discount-type": (0, stringSchema)(),
-				"discount-percentage": (0, numberSchema)()
+				discountType: (0, stringSchema)(),
+				discountPercentage: (0, numberSchema)()
 				}) ); 
 		};
 
 	//TODO: is id here a uuid??	gateway-id??							  			
 	const paymentSchema = ()=> {
 		return( (0, objectSchema)().keys({
-				"id": (0, stringSchema)(),
-				"gateway-id": (0, stringSchema)(),
-				"object": (0, stringSchema)()
+				id: (0, stringSchema)(),
+				gatewayId: (0, stringSchema)(),
+				object: (0, stringSchema)()
 				}).required() ); 
 		};	
 
 	const affiliateDiscountSchema = ()=> {
 		return( (0, objectSchema)().keys({
-				"affiliate-code": (0, stringSchema)(),
-				"discount-id": (0, stringSchema)(),
-				"discount-percentage": (0, numberSchema)()
+				affiliateCode: (0, stringSchema)(),
+				discountId: (0, stringSchema)(),
+				discountPercentage: (0, numberSchema)()
 				}) ); 
 		};									 				
 
 	const affiliateSchema = ()=> {
 		return( (0, objectSchema)().keys({
-				"affiliate-type": (0, stringSchema)(),
-				"affiliate-id": (0, stringSchema)(),
-				"discount": (0, affiliateDiscountSchema)()
+				affiliateType: (0, stringSchema)(),
+				affiliateId: (0, stringSchema)(),
+				discount: (0, affiliateDiscountSchema)()
 				}) ); 
 		};	
 
 	const accountSchema = ()=> {
 		return( (0, objectSchema)().keys({
 
-				"account-number": (0, stringSchema)().required(),
-				"account-type": (0, stringSchema)().required(),
-				"account-start": (0, dateSchema)().required(),
-				"price-per-seat": (0, numberSchema)().required(),
-				"monthly-payment": (0, numberSchema)().required(),
-				"yearly-payment": (0, numberSchema)().required(),
-				"discount": (0, discountSchema)(),
-				"affiliate-code": (0, stringSchema)(),
-				"licences": (0, numberSchema)().required(),
-				"subscription-period": (0, stringSchema)().required(),
-				"customer-type": (0, stringSchema)().required(),
-				"cancellation": (0, stringSchema)().required(),
-				"refund": (0, stringSchema)(),
-				"refund-amount":(0, numberSchema)(),	
-				"payment": (0, paymentSchema)(),	
-				"affiliate": (0, affiliateSchema)()						
+				accountNumber: (0, stringSchema)().required(),
+				accountType: (0, stringSchema)().required(),
+				accountStart: (0, dateSchema)().required(),
+				pricePerSeat: (0, numberSchema)().required(),
+				monthlyPayment: (0, numberSchema)().required(),
+				yearlyPayment: (0, numberSchema)().required(),
+				discount: (0, discountSchema)(),
+				affiliateCode: (0, stringSchema)(),
+				licences: (0, numberSchema)().required(),
+				subscriptionPeriod: (0, stringSchema)().required(),
+				customerType: (0, stringSchema)().required(),
+				cancellation: (0, stringSchema)().required(),
+				refund: (0, stringSchema)(),
+				refundAmount:(0, numberSchema)(),	
+				payment: (0, paymentSchema)(),	
+				affiliate: (0, affiliateSchema)()						
 
 			}).required() ); 
 	};	
@@ -158,14 +158,14 @@ function customer(){
 		  body: {
 					id: (0, uuidSchema)(), 
 					details: (0,detailsSchema)().required(),
-					"user-id": (0, uuidSchema)().required(),
-					"organisation-id": (0, stringSchema)(),
+					userId: (0, uuidSchema)().required(),
+					organisationId: (0, uuidSchema)(),
 					account: (0,accountSchema)().required()
 		  }
 	};
 
-	const customerRequiredKeys = ["details","user-id","account"];
-	const customerOptionalKeys = [];
+	const customerRequiredKeys = ["details","userId","account"];
+	const customerOptionalKeys = ["affiliateCode"];
 
 	return(
 	{
