@@ -159,13 +159,13 @@ function customer(){
 					id: (0, uuidSchema)(), 
 					details: (0,detailsSchema)().required(),
 					userId: (0, uuidSchema)().required(),
-					organisationId: (0, uuidSchema)().optional(),
+					organisationId: (0, uuidSchema)().required(),
 					account: (0,accountSchema)().required()
 		  }
 	};
 
-	const customerRequiredKeys = ["details","userId","account"];
-	const customerOptionalKeys = ["organisationId"];
+	const customerRequiredKeys = ["details","userId","organisationId","account"];
+	const customerOptionalKeys = [];
 
 	return(
 	{
